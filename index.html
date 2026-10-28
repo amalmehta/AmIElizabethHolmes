@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Am I Elizabeth Holmes?</title>
+<meta name="description" content="A 10-question fraud panel for founders, researchers and anyone with a pitch deck. One drop, two minutes. Every joke is a cited fact.">
+<meta name="theme-color" content="#FAF7F2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161412" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Am I Elizabeth Holmes?">
+<meta property="og:description" content="A 10-question fraud panel. One drop, two minutes, results guaranteed. Unlike some.">
+<meta property="og:url" content="https://amalmehta.github.io/AmIElizabethHolmes/">
+<meta property="og:image" content="https://amalmehta.github.io/AmIElizabethHolmes/og/home.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://amalmehta.github.io/AmIElizabethHolmes/og/home.png">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png" sizes="64x64">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<script>try{const t=localStorage.getItem('aieh-theme'),m=localStorage.getItem('aieh-motion');if(t&&t!=='auto')document.documentElement.dataset.theme=t;if(m&&m!=='auto')document.documentElement.dataset.motion=m}catch(e){}</script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 2.5S5 10.8 5 15.2a7 7 0 0 0 14 0C19 10.8 12 2.5 12 2.5Z" fill="currentColor"/></symbol>
+  <symbol id="i-right" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-left" viewBox="0 0 24 24"><path d="M19 12H5m6-6-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="M4 12 20 4l-6 16-3-7-7-1Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-redo" viewBox="0 0 24 24"><path d="M4 12a8 8 0 1 0 2.4-5.7L4 8.5M4 4v4.5h4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3M4.9 4.9 7 7m10 10 2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Zm0 16a2 2 0 0 1 2-2h13v2" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+</svg>
+
+<main>
+  <!-- Intro -->
+  <section class="screen intro on" id="intro" aria-labelledby="t">
+    <img class="mark" src="icon.svg" alt="" width="56" height="56">
+    <div class="after-mark">
+      <h1 id="t">Am I Elizabeth Holmes?</h1>
+      <p class="lede">A 10-question fraud panel for founders, researchers and anyone with a pitch deck. One drop, two minutes, results guaranteed. Unlike some.</p>
+      <div class="row">
+        <button class="btn primary" id="start">Start the test <kbd>↵</kbd></button>
+        <span class="small">The scores are made up. The facts aren’t: each one is cited.</span>
+      </div>
+      <div class="sample" aria-hidden="true">
+        <p class="sample-label">Sample result</p>
+        <div class="slip" id="sample-slip"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Question -->
+  <section class="screen" id="quiz" aria-live="polite">
+    <div class="progress"><span id="count">1 / 10</span><div class="bar"><i id="bar"></i></div></div>
+    <h2 id="question"></h2>
+    <ul class="answers" id="answers"></ul>
+    <div class="fact" id="fact">
+      <div class="label"><svg class="icon"><use href="#i-drop"/></svg>Real fact</div>
+      <p id="fact-text"></p>
+      <a id="fact-src" target="_blank" rel="noopener"></a>
+    </div>
+    <div class="row">
+      <button class="btn ghost" id="back"><svg class="icon"><use href="#i-left"/></svg>Back</button>
+      <button class="btn primary next" id="next">Next <kbd>↵</kbd></button>
+    </div>
+  </section>
+
+  <!-- Result -->
+  <section class="screen result" id="result">
+    <h2>Your results are in.</h2>
+    <div class="slip" id="slip"></div>
+    <div class="row">
+      <a class="btn primary" id="share" target="_blank" rel="noopener"><svg class="icon"><use href="#i-send"/></svg>Post to X</a>
+      <button class="btn" id="copy"><svg class="icon"><use href="#i-link"/></svg>Copy link</button>
+      <button class="btn ghost" id="again"><svg class="icon"><use href="#i-redo"/></svg>Retake</button>
+    </div>
+
+    <div class="point">
+      <h3>The real point</h3>
+      <p class="rule">Fraud is when claims outrun evidence and you hide the gap.</p>
+      <p>This test scores what you’d <em>do</em>, not how you feel. Feeling like a fraud is something else, called impostor feelings, first described by <a href="https://doi.org/10.1037/h0086006" target="_blank" rel="noopener">Clance &amp; Imes (1978)</a>. Worrying that you overclaim is a reason to check your work, not proof that you do.</p>
+      <details>
+        <summary>A rule you can reuse</summary>
+        <p>Before you say it, ask: <em>could I show this to someone who wants it to be false?</em> If yes, say it. If not, say what you <em>can</em> show (“three pilot users”, “a recording”) and let it be enough. It works like a unit test for claims, and it fails when you’re the only person checking.</p>
+      </details>
+      <details>
+        <summary><svg class="icon"><use href="#i-book"/></svg> Sources (11)</summary>
+        <ol class="sources" id="sources"></ol>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>Satire. Not affiliated with anyone. Scores are invented; facts are cited.</span>
+  <span class="row"><a class="feedback-link" href="https://github.com/amalmehta/AmIElizabethHolmes/issues/new?title=Feedback" target="_blank" rel="noopener">Feedback</a>
+  <button class="icon-btn" id="open-settings" aria-label="Settings (,)" title="Settings (,)"><svg class="icon"><use href="#i-gear"/></svg></button></span>
+</footer>
+
+<a class="feedback-tab" href="https://github.com/amalmehta/AmIElizabethHolmes/issues/new?title=Feedback&body=What%20happened%20or%20what%20would%20be%20funnier%3F" target="_blank" rel="noopener">Feedback</a>
+
+<dialog id="settings" aria-labelledby="st">
+  <form method="dialog">
+    <h2 id="st">Settings</h2>
+    <fieldset class="field">
+      <legend>Theme</legend>
+      <div class="seg">
+        <label><input type="radio" name="theme" value="auto"><span>Auto</span></label>
+        <label><input type="radio" name="theme" value="light"><span>Light</span></label>
+        <label><input type="radio" name="theme" value="dark"><span>Dark</span></label>
+      </div>
+    </fieldset>
+    <fieldset class="field">
+      <legend>Motion</legend>
+      <div class="seg">
+        <label><input type="radio" name="motion" value="auto"><span>System</span></label>
+        <label><input type="radio" name="motion" value="reduce"><span>Reduce</span></label>
+      </div>
+    </fieldset>
+    <p class="small">Keys: 1–4 to answer, Enter for next, ← to go back, comma for settings. Nothing you answer leaves this page.</p>
+    <div class="row"><button class="btn primary" value="close">Done</button></div>
+  </form>
+</dialog>
+
+<div class="toast" id="toast" role="status"></div>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

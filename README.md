@@ -20,3 +20,7 @@ The scores are invented for comedy. The facts are not: each one links to its sou
 - [Prompt log](docs/PROMPTS.md)
 
 Satire. Not affiliated with Elizabeth Holmes, Theranos or anyone named in the sources.
+
+## How it was built
+
+How this was built and how it works, with diagrams: [docs/HOW-IT-WAS-BUILT.md](docs/HOW-IT-WAS-BUILT.md)

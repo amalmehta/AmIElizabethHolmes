@@ -6,7 +6,7 @@ Am I Elizabeth Holmes? is a ten-question satirical quiz website. It scores how f
 ## Build history
 
 ```mermaid
-flowchart LR
+flowchart TD
   idea["Idea: a funny but kinda realistic fraud questionnaire to post on X"]
   web["Deliverable: a website"]
   m1["First version: quiz, cited facts, share pages, tests, docs - 2026-10-28"]
